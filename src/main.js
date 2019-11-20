@@ -6,3 +6,5 @@ function test() {
 }
 
 test();
+
+a = 10
