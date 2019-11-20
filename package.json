@@ -1,0 +1,24 @@
+{
+  "name": "jscriptcomtdd",
+  "version": "1.0.0",
+  "description": "Biblioteca do curso JS com TDD na prática",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillRock19/JScriptComTDD.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "William Porto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WillRock19/JScriptComTDD/issues"
+  },
+  "homepage": "https://github.com/WillRock19/JScriptComTDD#readme"
+}
