@@ -4,7 +4,8 @@
   "description": "Biblioteca do curso JS com TDD na prática",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint src/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/WillRock19/JScriptComTDD/issues"
   },
-  "homepage": "https://github.com/WillRock19/JScriptComTDD#readme"
+  "homepage": "https://github.com/WillRock19/JScriptComTDD#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
 }
