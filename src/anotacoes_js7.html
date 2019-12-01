@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Anotações das aulas de ES6</title>
+    </head>
+    <style>
+      .green {
+        color: rgb(180, 9, 9);
+        font-size: 30px;
+      }
+    </style>
+    <body>
+      <section>
+        <p>Minha lista de itens:</p>
+        <ul class='lista-itens'>
+          <li>Derrubar as paredes de notreDame</li>
+          <li>Implodir a estátua de San Cristoban</li>
+          <li>Remodelar o sorriso de Mona Lisa</li>
+        </ul>
+      </section>
+    </body>
+    <script>
+
+      /*ASYNC / AWAIT
+
+        Funcionam obrigatoriamente no protocolo do Promise (ou seja, quando estivermos trabalhando com promises);
+
+        async é uma palavra-chave usada no começo de uma função;
+
+        await é usado para esperar que uma promise seja resolvida e só pode ser usada em funções com async;
+
+        já funciona em quase todos os browsers atuais;
+
+        Vantagens:
+
+          Código fica mais simplificado e com menos encadeamento do que usando .then();
+
+          Mais fácil de debuggar (sem o .then() ficamos com menos callback);
+
+          Faz com que o JScript funcione com um fluxo síncrono (dizemos o que queremos executar e o que esperaremos)
+      */
+
+      /* TRATAR ERROS COM Async/Await
+
+        Usaremos try...catch()
+
+      */
+
+      /* ASYNC / AWAIT COM MULTIPLAS PROMISES
+
+        Definição: podemos esperar a resolução de mais de uma promise sem ficar espalhando await em cada chamada.
+
+          async function getUsers(){
+            const william = fetch('https://api.github.com/users/willian').then(x => x.json());
+            const juliano = fetch('https://api.github.com/users/juliano').then(x => x.json());
+
+            let promises = new Promise.all([william, juliano]);
+            console.log(promises); //imprime os dados recuperados dos usuários quando ambas as promises tiverem sido resolvidas
+          }
+
+          getUsers();
+
+        Podemos tornar esse código mais genérico, passando a lista de usuários desejados para a função getUsers().
+
+          async function getUsers(users) {
+            const promises = users.map(user => fetch(`https://api.github.com/users/${user}`).then(r => r.json()));
+            const people = await Promise.all(promises);
+            console.log(people.map(p => p.name)); //Imprime os nomes de todas as pessoas na console
+          }
+
+          getUsers(['willianjusten', 'guilouro', 'lhbzr']);
+      */
+
+      /* PADSTART e PADEND
+
+          Definição: são métodos do prototype das strings (String.prototype.padStart e String.prototype.padEnd). Preenche o inicio ou o final de uma string com os caracteres informados na quantidade de vezes desejada.;
+
+            console.log('abc'.padStart(10, 'Hi')); // Vai imprimir nove caracteres H + i e, no décimo, vai inserir o abc, ficando HiHiHiHiHabc;
+
+          Útil para adicionar caracteres à strings.
+      */
+
+      /* EXPONENTIATION
+
+          Definição: permite calcular a potência dos números. Antigamente, fazíamos:
+
+            console.log(math.pow(2, 3));
+
+          Agora, podemos fazer:
+
+            console.log(2 ** 3);
+      */
+
+      /* INCLUDES
+
+          Definição: verifica se um certo valor está incluso no array.
+
+            Antigamente:
+
+              const arr = [1, 2, 3];
+              console.log(arr.indexOf(5) > -1); // retornaria false, já que 5 não existe dentro do array
+
+            Agora:
+
+              const arr = [1, 2, 3];
+              console.log(arr.includes(5)); // retornaria false, já que 5 não existe dentro do array
+      */
+
+      /* OBJECT.ENTRIES
+
+          Definição: quebra as propriedades/valor de um objeto em um array de arrays (sendo que cada array interno contém dois elementos, um texto representando o nome da propriedade, outro representando o valor nela contido)
+
+            const animals = {
+              camel: 3,
+              llama: 2,
+              alpaca: 5
+            }
+
+            console.log(Object.entries(animals));
+
+              Isso irá imprimir um array com três itens, e cada item será um um sub-array com os dados da property. Exemplo abaixo:
+
+                [
+                  0: ['camel', 3],
+                  1: ['llama': 2],
+                  2: ['alpaca': 5]
+                ]
+
+          Podemos usar isto para mapear as propriedades. Exemplo:
+
+            const animalsMap = new Map(Object.entries(animals));
+
+            console.log(animalsMap.size); // Imprime 3
+            console.log(animalsMap.has('llhama')); // Imprime true
+            console.log(animalsMap.has('lion')); // Imprime false
+            console.log(animalsMap.get('alpaca')); // Imprime o valor da property alpaca, ou seja, 5
+      */
+
+      /* OBJECT.VALUES
+
+          Definição: retorna um array com os valores de um objeto
+
+            const animals = {
+              camel: 3,
+              llama: 2,
+              alpaca: 5
+            }
+
+            console.log(Object.values(animals)); // imprime [3, 2, 5]
+      */
+
+      /* TRAILING COMMAS
+
+          Definição: Colocamos uma vírgula a mais no final de uma lista de itens, propriedades, parâmetros ou etc. para que a próxima pessoa lembre de colocar uma, e isso não quebra mais a aplicação
+      */
+
+    </script>
+  </html>

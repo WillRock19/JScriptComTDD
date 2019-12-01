@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Anotações das aulas de ES6</title>
+    </head>
+    <style>
+      .green {
+        color: rgb(180, 9, 9);
+        font-size: 30px;
+      }
+    </style>
+    <body>
+      <section>
+        <p>Minha lista de itens:</p>
+        <ul class='lista-itens'>
+          <li>Derrubar as paredes de notreDame</li>
+          <li>Implodir a estátua de San Cristoban</li>
+          <li>Remodelar o sorriso de Mona Lisa</li>
+        </ul>
+      </section>
+    </body>
+    <script>
+
+      /*TAGGED TEMPLATE
+
+        const city = 'Gotham City';
+        const something = 'Joker'
+        const clowns = 'Bozo';
+
+        function red(template, ...values){
+          return template.reduce((previous, current, index) => {
+            return `
+              ${previous}
+              <span class='green'>${values[index - 1].toUpperCase()}</span>
+              ${current}
+            `;
+          });
+        }
+
+        const aboutGotham = red `I live in ${city} and live here is terrible. The ${something} keeps blowing things up like a fucking ${clowns}`;
+
+        document.body.innerHTML = aboutGotham;
+      */
+
+      /* ARRAYS
+
+          const listaItens = document.querySelectorAll('.lista-itens');
+          console.log('A lista original: ', listaItens);
+
+          const meuArray = Array.of(listaItens);
+          console.log('A lista como array: ', meuArray);
+
+
+          Array.find() -> Busca o primeiro item em um array que bate com uma condição
+
+          Array.findIndex() -> Busca índice do primeiro item em um array que bate com uma condição
+
+          Array.fill() -> preenche um array em toda sua extensão com o valor passado nos parâmertros
+
+      */
+
+
+      // SWAP DE VARIÁVEIS
+
+        //Ecma6 permite fazer swap de variáveis (troca de valores entre variáveis)
+
+        /*
+          const a = 5;
+          const b = 6;
+
+          console.log('a: ', a); -> imprime 5
+          console.log('b: ', b); -> imprime 6
+
+          [a, b] = [b, a]
+
+          console.log('a: ', a); -> imprime 6
+          console.log('b: ', b); -> imprime 5
+
+        */
+
+      // PROMISES
+
+        //Promise.all().then() espera todas as Promises que eu passar serem resolvidas, e então executa o que estiver no .then()
+
+        //Promise.race().then() assim que a primeira das promises que eu passei for resolvida, ignora a outra e já executa o .then()
+
+          // let defer = new Promise((resolve, reject) => {
+          //   setTimeout(() => {
+          //     if(false)
+          //       resolve('Deu certo!');
+          //     else
+          //       reject('Oporra');
+          //   }, 2000);
+          // });
+
+          // defer
+          //   .then((resultado) => console.log(resultado))
+          //   .catch((resultado) => console.error(resultado));
+
+
+        /* HERANÇA PROTOTIPAÇÃO
+
+              Função construtora = permite criar objetos a partir dela;
+
+              Como se fazia uma classe no ES5?
+
+                  function Animal(kind, sound){
+                    this.kind = kind;
+                    this.sound = sound;
+                  }
+
+                  Animal.prototype.hello = function(){
+                    console.log(`${this.sound} I'm a ${this.kind}`)
+                  }
+
+                  const dog = new Animal('dog', 'awaw');
+                  const cat = new Animal('cat', 'meow');
+
+                  dog.hello(); -> Imprime 'awaw I'm a dog';
+                  cat.hello(); -> Imprime 'meow I'm a cat';
+
+
+              E como se faz classes agora no ES6?
+
+                  class Animal() {
+
+                    constructor(kind, sound) {
+                      this.kind = kind;
+                      this.sound = sound;
+                    }
+
+                    hello() { //Não preciso declarar como function hello() por conta do short-hands do ES6
+                      console.log(`${this.sound} I'm a ${this.kind}`)
+                    }
+
+                    static info(){
+                      console.log('This is a class to create animals');
+                    }
+
+                    get name() {
+                      console.log('My name is Pablo Escobar');
+                    }
+
+                    set nickname(nick){
+                      this.nick = nick;
+                    }
+                  }
+
+                  const dog = new Animal('dog', 'awaw');
+                  const cat = new Animal('cat', 'meow');
+
+                  dog.hello(); -> Imprime 'awaw I'm a dog';
+                  cat.hello(); -> Imprime 'meow I'm a cat';
+
+                  dog.info(); -> lança uma exceção;
+                  Animal.info(); -> imprime a mensagem esperada;
+
+                  dog.name; -> deve ser chamado como se fosse uma propriedade, já que é um get
+
+                  dog.nickname = 'teste';
+                  dog.nick -> imprime o nickname 'teste'
+
+
+              Como extender comportamentos de classes?
+        */
+
+
+        /* ITERATORS E ITERABLES
+
+            Iterator = objeto que pode percorrer um ítem;
+
+            Iterable = objeto que pode ser percorrido;
+
+                  Exemplo:
+
+                    let textIterable = "William";
+                    let iterator = textIterable[Symbol.iterator]();
+
+                    console.log(iterator.next()); // Imprime a letra 'W' com a propriedade done = false ({value: "W", done: false});
+                    console.log(iterator.next()); // Imprime a letra 'i' com a propriedade done = false ({value: "i", done: false});
+
+                    //No lugar do iterator, também poderíamos usar o for... of
+
+                    for(letter of textIterable){
+                      console.log(letter); //Imprime cada letra no console
+                    }
+        */
+
+        /* GENERATORS
+
+            Definição: é um tipo de iterator. São funções que são executadas até o primeiro yield, sendo chamadas yield por yield e executando as linhas internamente (cada yield é como um next() do iterator, ou o return de uma função normal que permite que tudo que está abaixo dele ainda seja executado).
+
+            function* getNames(){
+              yield 'Willian';
+              yield 'Jonas';
+              yield 'Teste';
+            }
+
+            const names = getNames();
+
+            console.log(names.next()); //Imprime um objeto { value: 'Willian', done: false }
+            console.log(names.next()); //Imprime um objeto { value: 'Jonas', done: false }
+            console.log(names.next()); //Imprime um objeto { value: 'Teste', done: true }
+        */
+
+        /* PROXY
+
+            Definição: permite subscrever comportamentos de funções dentro de um objeto. Abaixo, um exemplo onde subescrevo o método get() e o set().
+
+              let pessoa = {
+                name: 'Willian',
+                age: 26
+              }
+
+              let handler = {
+                get(objetoAlvoDaSubscricao, nomePropriedade){
+                  console.log("Alguém está pedindo o nome do meu objeto. E o nome é...");
+                  return objetoAlvoDaSubscricao[nomePropriedade];
+                },
+
+                set(objetoAlvoDaSubscricao, nomePropriedade, valor){
+                  console.log("Alguém está alterando o nome do meu objeto!");
+                  return objetoAlvoDaSubscricao[nomePropriedade] = valor;
+                }
+              }
+
+              let proxy = new Proxy(pessoa, handler);
+
+            Após isso, a chamada da property name imprime os seguintes resultados:
+
+              pessoa.name; // 'Willian'
+
+              proxy.name; // "Alguém está pedindo o nome do meu objeto. E o nome é..."
+                          //  'Willian'
+
+
+              proxy.name = 'Vishe'; // "Alguém está alterando o nome do meu objeto!"
+                                    //  'Vishe'
+
+              proxy.name; // "Alguém está pedindo o nome do meu objeto. E o nome é..."
+                          //  'Vishe'
+        */
+
+        /* SET
+
+            Definição: permite guardar valores únicos de um tipo (seja primitivo ou um objeto)
+
+              let mySet = new Set(['teste', 'oloko']);
+
+              mySet.size; //imprime o tamanho do size. No caso, 2
+
+              mySet.add('Vishe');
+              mySet.add('Vishe');
+
+            Se eu chamar o add mais de uma vez para o mesmo valor, ele adicionará apenas uma vez
+
+            Também há o método de deleção:
+
+              mySet.delete('oloko');
+
+            Há também o método has() que retorna se um item existe ou não dentro do Set
+
+              mySet.has('Vishe'); // imprime true
+              mySet.has('Esse não existe'); // imprime false
+
+            O Set é baseado no iterator - logo, um .values() retorna um objeto Iterator.
+
+              let iterator = mySet.values();
+              iterator.next(); // imprime { value: 'teste', done: false }
+        */
+
+        /* WEAKSET
+
+            Definição: similar ao SET, mas com algumas diferenças.
+
+              Não permite definir tipos primitivos (aceita apenas objetos);
+
+              Tem as mesmas funções do Set;
+
+              Não retorna um iterator com o .values();
+
+              Não permite percorrer os itens com um for...of;
+        */
+
+        /* MAP
+
+            Definição: similar ao SET, mas permite definir chaves e valores, ao invés de apenas valores;
+
+              let map = new Map();
+
+              map.set('Willian', 26);
+              map.set('Jonas', 35);
+
+            Permite a maior parte dos métodos existentes dentro do Set;
+
+            No iterator, cada next() retorna apenas os valores, não as chaves.
+
+              let iterator = map.values();
+              iterator.next(); // imprime { value: 26, done: false }
+        */
+
+        /* WEAKMAP
+
+            Definição: parecido com o WeakSet, permitindo um objeto como a chave
+
+              Como o WeakSet, não consegue fazer loops, não gera um iterator, etc.
+
+                let objeto1 = {
+                  name: 'Teste1',
+                  age: 25
+                }
+
+                let objeto2 = {
+                  name: 'Teste2',
+                  age: 28
+                }
+
+                let weakMap = new WeakMap();
+
+                weakMap.set(objeto1, 'Info do Teste1');
+                weakMap.set(objeto2, 'Info do Teste2');
+        */
+
+
+
+    </script>
+  </html>
