@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Anotações da parte de Testes do Curso</title>
+    </head>
+    <style> </style>
+    <body>
+      <section class='links-uteis'>
+        <p>Links úteis:</p>
+        <ul>
+          <li>
+            <a href='https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub'>What's the difference between a mock & stub?</a>
+          </li>
+          <li>
+            <a href='https://medium.com/trainingcenter/testes-unit%C3%A1rios-mocks-stubs-spies-e-todas-essas-palavras-dif%C3%ADceis-f2765ac87cc8'>Testes Unitários 101: Mocks, Stubs, Spies e todas essas palavras difíceis</a>
+          </li>
+          <li>
+              <a href=''></a>
+          </li>
+          <li>
+              <a href=''></a>
+          </li>
+        </ul>
+      </section>
+    </body>
+    <script>
+
+      /*
+        Describe: utilizado para separar os "grandes métodos ou classes" de teste (exemplo: "método eh Admin()")
+
+        Context: utilizado para separar os "casos de teste" que teremos (exemplo: "ao receber um nome do cliente administrador")
+
+        It: utilizado para criar a asserção do que é esperado que ocorra em determinado cenário de teste (exemplo: "deve retornar true")
+      */
+
+      /* MOCHA
+
+        Reporters: uma cmdline que permite exibir os dados dos testes executados. Para executá-lo, use:
+
+          mocha  <arquivo com os testes>.js --reporter=<tipo do reporter>
+
+            Para saber quais os tipos do reporter que você pode usar, use o comando: mocha  <arquivo com os testes>.js --reporter, e o mocha irá imprimir a lista de opções na console.
+
+
+        Bail: uma cmdline que faz os testes serem rodados até o primeiro quebrar; então, a suit para de rodar.
+
+          mocha  <arquivo com os testes>.js --bail
+
+        Only: é uma extensão do context, permite que eu rode apenas aquele context de testes. Exemplo:
+
+              describe('Meu conjunto de testes', () => {
+                context.only('rodar apenas este', () => {
+                  ...
+                });
+
+                context('contexto que será ignorado', () => {
+                  ...
+                });
+              });
+
+        Skip: é uma extensão do context, permite que pule um teste, que ele não seja executado. Exemplo:
+
+              describe('Meu conjunto de testes', () => {
+                context.Skip('contexto que será ignorado', () => {
+                  ...
+                });
+
+                context('contexto que será rodado', () => {
+                  ...
+                });
+              });
+
+        HOOKS: é uma chamada que acontecerá em determinado momento, servindo para:
+
+          -> Inicializar cenários de testes (criar conjuntos de dados, inicializar objetos que serao utilizados em vários testes, etc);
+          -> Criar métodos que serão executados antes de outros;
+
+          São eles:
+
+              Observação: por 'bloco' me refiro aos 'describe', 'context' e 'it', e por 'código dentro do bloco' me refiro, por exemplo, aos 'it' dentro de um 'context', ou aos 'context' dentro de um 'describe'
+
+              before: roda o código dentro dele uma vez antes de rodar os demais códigos dentro do bloco;
+              after: roda o código dentro dele uma vez depois de rodar os demais códigos dentro do bloco;
+
+              beforeEach: roda o código dentro dele antes de rodar cada código dentro do bloco, um a um;
+              afterEach:  roda o código dentro dele depois de rodar cada código dentro do bloco, um a um;
+
+
+
+
+      */
+
+    </script>
+  </html>
