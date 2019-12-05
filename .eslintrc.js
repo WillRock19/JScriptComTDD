@@ -15,8 +15,11 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "no-unused-expressions": 0,
+    "chai-friendly/no-unused-expressions": 2
   },
   env: {
     mocha: true
-  }
+  },
+  plugins: ["chai-friendly"]
 };
