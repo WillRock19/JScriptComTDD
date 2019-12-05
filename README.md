@@ -1,6 +1,6 @@
 # JScript com TDD
 
-Projeto criado para estudos da utilização de TDD em projetos JScript
+It's a project created for study of TDD in JScript. Here you can find my course annotations (see folder 'anotações') besides an application created throught the course - a Spotfy's Wrapper.
 
 ## Getting Started
 
@@ -68,7 +68,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 

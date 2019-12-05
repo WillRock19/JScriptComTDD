@@ -321,7 +321,77 @@
                 weakMap.set(objeto2, 'Info do Teste2');
         */
 
+        /* ARROW FUNCTION
 
+          Sintaxe nova que posso usar no lugar da sintaxe de function(){}
 
+            let brazil = ['Sao Paulo', 'Rio de Janeiro', 'Natal'];
+
+            const love = brazil.map(function(name){
+              return `I love ${name}`
+            });
+
+          Com as arrow functions, posso escrever esse código:
+
+            const loveArrowSimple = brazil.map((name) => {
+              return `I love ${name}`
+            });
+
+            const loveArrowOneParameter = brazil.map(name => {
+              return `I love ${name}`
+            });
+
+            const loveArrowOneLine = brazil.map(name => `I love ${name}`);
+
+          Arrow Functions podem alterar o funcionamento do this:
+
+            const btn = document.getElementById('teste');
+
+            btn.addEventListener('click', function(){
+              console.log(this);
+            });
+
+              -> Neste caso, quando o log imprimir o this, o this será o botão a que o evento foi vinculado.
+
+            btn.addEventListener('click', () => {
+              console.log(this);
+            });
+
+              -> Já neste segundo caso, o this será o contexto geral, ou seja, a window.
+
+              -> Isso ocorre porque a arrow function não encontra o this em relação à ação que está acontecendo, mas ao contexto total
+
+            Outro exemplo:
+
+              const sandwitch = {
+                bread: 'white',
+                cheese: 'cheddar',
+
+                prepare: function(){
+                  return 'I want to make with a ${this.bread} bread and ${this.cheese} cheese';
+                }
+
+                make: function(){
+                  var that = this;
+
+                  window.setTimeout(function(){
+                    //this aqui, estaria associado ao contexto do window, ou seja, ao window.
+                    console.log(that.prepare());
+                  }, 500);
+                }
+              }
+
+              Neste código, o this dentro do setTimeout estaria associado ao escopo da window, não do objeto. Por isso, usamos a variável that, que irá armazenar o valor de this enquanto ele ainda está se referindo ao 0objeto sandwitch.
+
+              Se usássemos arrow funcition no setTimetout:
+
+                window.setTimeout(() => {
+                    console.log(this.prepare());
+                }, 500);
+
+              Aqui, o this está se referindo ao contexto do sandwitch, e não da window.
+
+              CONCLUSÃO: A arrow function é útil quando usamos funções dentro de funções e queremos usar métodos da função um nível acima da atual;
+        */
     </script>
   </html>
