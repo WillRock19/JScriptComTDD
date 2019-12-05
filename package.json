@@ -4,8 +4,8 @@
   "description": "Project with annotations and a Spotfy Wrapper - created to study TDD in JScript",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha  tests/**/*.spec.js --require babel-register --reporter=nyan",
-    "testw": "./node_modules/.bin/mocha  tests/**/*.spec.js --require babel-register --watch",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --reporter=nyan",
+    "test:watch": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint"
   },

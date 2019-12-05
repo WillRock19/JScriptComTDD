@@ -1,8 +1,9 @@
-const a = 2;
-const b = 10;
+export const search = () => { };
 
-function test() {
-  return a + b;
-}
+export const searchAlbums = () => { };
 
-test();
+export const searchArtists = () => { };
+
+export const searchTracks = () => { };
+
+export const searchPlaylists = () => { };
