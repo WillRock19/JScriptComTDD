@@ -1,6 +1,10 @@
-# JScript com TDD
+# Title: JScript com TDD
 
 It's a project created for study of TDD in JScript. Here you can find my course annotations (see folder 'anotações') besides an application created throught the course - a Spotfy's Wrapper.
+
+## IMPORTANT (About the comments)
+
+There are comments inside the code just because this is a study sample. The comments are used just to remind of important things about the time I was developing this application. Comments should not be used in real applications or projects of any kind.
 
 ## Getting Started
 
