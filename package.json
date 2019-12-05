@@ -34,6 +34,10 @@
     "eslint-plugin-chai-friendly": "^0.5.0",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.1.0",
+    "node-fetch": "^2.6.0",
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0",
+    "sinon-stub-promise": "^4.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },

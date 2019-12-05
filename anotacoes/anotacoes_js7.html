@@ -140,5 +140,15 @@
           Definição: Colocamos uma vírgula a mais no final de uma lista de itens, propriedades, parâmetros ou etc. para que a próxima pessoa lembre de colocar uma, e isso não quebra mais a aplicação
       */
 
+      /* POLYFILL
+
+          Explicando de forma prática, para que qualquer um entenda: Você quer usar um recurso muito bom do javascript, por exemplo fetch() ou Promise().
+
+          Mas alguns navegadores, como o Internet Explorer, não possuem suporte a estes recursos. De uma forma bem mal feita, você coloca aquele if maroto para saber se o navegador tem suporte e, caso não tenha, você usa alguma forma alternativa, ou até mesmo diz logo ao usuário que ele não pode usar tal recurso.
+
+          Usando um pollyfill, este vai detectar que o navegador não tem suporte e vai implementar na hora ali, usando gambiarras funções disponíveis para aquele navegador, e vai fazer com que seja possível usar o recurso com a mesma interface inclusive. No caso é como se o navegador tivesse suporte a tal recurso.
+
+          Futuramente, se o navegador passar a ter suporte ao recurso, o pollyfill pode ser desativado para ele, já que a implementação do código é a mesma, nada muda.
+      */
     </script>
   </html>
